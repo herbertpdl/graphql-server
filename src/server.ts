@@ -3,7 +3,7 @@ import { ApolloServer } from 'apollo-server-express'
 import dephLimit from 'graphql-depth-limit'
 import { createServer } from 'http'
 import compression from 'compression'
-import cors from 'cors'
+import './types/character'
 import schema from './schema'
 
 const app = express()
@@ -12,7 +12,6 @@ const server = new ApolloServer({
   validationRules: [dephLimit(7)]
 })
 
-// app.use('*', cors())
 app.use(compression())
 server.applyMiddleware({ app, path: '/graphql' })
 
