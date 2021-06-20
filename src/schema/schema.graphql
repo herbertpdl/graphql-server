@@ -16,5 +16,5 @@ type Character {
 type Query {
   helloWorld: String!,
   character: Character,
-  characters: [Character]
+  charactersByName(name: String): [Character]
 }

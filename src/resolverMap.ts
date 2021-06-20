@@ -7,10 +7,10 @@ const resolverMap: IResolvers = {
     helloWorld(_: void, args: void): string {
       return `👋 Hello world! 👋`
     },
-    async characters() {
+    async charactersByName(_: void, { name }: { name: string }) {
       let charactersList
 
-      await getCharacterByName().then(resp => charactersList = resp.results)
+      await getCharacterByName(name).then(resp => charactersList = resp.results)
 
       return charactersList
     }
